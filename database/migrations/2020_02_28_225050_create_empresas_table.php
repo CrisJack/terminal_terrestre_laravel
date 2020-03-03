@@ -18,7 +18,7 @@ class CreateEmpresasTable extends Migration
             $table->integer('ruc');
             $table->string('name');
             $table->unsignedBigInteger('user_id');
-            $table->foreing('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
