@@ -44,7 +44,7 @@
 </style>
 <body class="bg-dark body">
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" style="background: rgba(64, 224, 208, 0.6);>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -71,11 +71,27 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                                </li>
+                                
                             @endif
                         @else
+
+                            <!-- <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar Usuario') }}</a>
+                            </li> -->
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/empresa') }}">{{ __('Empresas') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Usuarios') }}</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
+                            </li> -->
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

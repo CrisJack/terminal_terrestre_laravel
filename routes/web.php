@@ -19,3 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('mensaje','MensajeController');
+Route::resource('empresa','EmpresaController');
+// Route::resource('mensaje','MensajeController');
+// Route::resource('mensaje','MensajeController');

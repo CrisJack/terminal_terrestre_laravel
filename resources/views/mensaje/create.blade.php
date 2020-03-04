@@ -12,14 +12,17 @@
 @csrf
     
         <div class="row justify-content-center">
-            <div class="col-9 m-0 p-0">
-                <input class="form-control" type="text" name="message" placeholder="Escribir mensaje aqui">
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-            </div>
             
-            <div class="col-3 m-0 p-0">
-                <button class="btn btn-info btn-block" type="submit">Enviar mensaje</button>
-            </div>
+
+            <div class="input-group mb-3">
+                <input name="message" type="text" class="form-control" placeholder="Escribir mensaje aqui" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-info btn-block" type="submit">Enviar</button>
+                </div>
+            </div>                
+                
+            
         </div>
     
 </form>

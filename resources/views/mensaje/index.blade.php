@@ -8,7 +8,7 @@
 </head>
 <body>
     
-<div class="container">
+<div class="container" >
     @foreach ($datos2 as $item)
     <div class="row">
         <div class="col-12 py-0"><h6 class="text-info"><spam class="text-danger">{{$loop->iteration}}::: </spam><b>{{ $item->user->name }} dice: </b></h6></div>
