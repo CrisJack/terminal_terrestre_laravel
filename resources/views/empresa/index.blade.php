@@ -12,22 +12,35 @@
   Crear Empresa
 </button>
 
-<!-- Modal create -->
+<!-- Modal create --> 
 <div class="modal fade" id="crear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Crear</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear Empresa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <form action="{{url('/estudiantes')}}" method="POST" enctype="multipart/form-data">
+    {{csrf_field()}}
+        
+    <div class="form-group">
+    <label for="formGroupExampleInput">Nombre</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el Nombre de su Empresa">
+    </div>
+    <div class="form-group">
+    <label for="formGroupExampleInput2">Ruc</label>
+    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el Ruc de su Empresa">
+    </div>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <button type="button" class="btn btn-primary">Gurdar</button>
+      </form>
+      <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        
       </div>
     </div>
   </div>

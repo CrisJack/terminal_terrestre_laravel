@@ -108,14 +108,14 @@
                         </div>
                         <div class="card-body ">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-auto col-lg-6">
                                 <img src="{{url('storage/img/perfil.png')}}" style="width:23rem;" alt="">
                                     <h5 class="card-title">Mi nombre es</h5>
                                     <p class="card-text">
                                         Cristhian Jack López Suasnabar
                                     </p>
                                 </div>
-                                <div class="col-6 text-left">
+                                <div class="col-auto col-lg-6 text-left">
                                     <h5 class="card-title">Esperiencia :</h5><hr>
                                     <p class="card-text">
                                     <i class="fa fa-address-book-o" aria-hidden="true"></i>
@@ -150,14 +150,14 @@
                         </div>
                         <div class="card-body ">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-auto col-lg-6">
                                     <img src="{{url('storage/img/laravel.png')}}" style="width:23rem;" alt="">
                                     <h5 class="card-title">Laravel</h5>
                                     <p class="card-text">
                                         Desarrollo de aplicaiones web en Laravel
                                     </p>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-auto col-lg-6">
                                     <img src="{{url('storage/img/angular.png')}}" style="width:10rem;" alt="">
                                     <h5 class="card-title">Angular</h5>
                                     <p class="card-text">

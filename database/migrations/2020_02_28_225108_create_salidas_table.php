@@ -17,6 +17,7 @@ class CreateSalidasTable extends Migration
             $table->bigIncrements('id');
             $table->date('fecha');
             $table->time('hora');
+            $table->double('precio');
             $table->unsignedBigInteger('empresa_id');
             $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->timestamps();
