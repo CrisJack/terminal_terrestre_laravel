@@ -74,7 +74,11 @@
                             <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Ingresar Rol') }}</label>
 
                             <div class="col-md-6">
-                                <input id="rol" type="number" class="form-control" name="rol" required autocomplete="new-password">
+                            <select name="rol"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                    <option selected>Elige el rol</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Cliente</option>                                    
+                             </select>
                             </div>
                         </div>
 

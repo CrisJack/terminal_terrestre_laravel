@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\User;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -14,8 +15,10 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $datos['empresas']=Empresa::all();
-        return view('empresa.index',$datos);
+        $datos['empresas']=Empresa::all()->load('User');
+        $datos2['usuarios']=User::all();
+        
+        return view('empresa.index',$datos,$datos2);
     }
 
     /**
@@ -36,7 +39,9 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=request()->except('_token');        
+        empresa::insert($datos);
+        return redirect('empresa');
     }
 
     /**
@@ -45,9 +50,9 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresa)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -56,9 +61,11 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresa $empresa)
+    public function edit($id)
     {
-        //
+        $dato = empresa::findOrFail($id);
+        $datos2['usuarios']=User::all();
+        return view('empresa.edit',compact('dato'),$datos2);
     }
 
     /**
@@ -68,9 +75,13 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        empresa::where('id','=',$id)->update($datos);
+
+        return redirect('empresa');
+
     }
 
     /**
@@ -79,8 +90,9 @@ class EmpresaController extends Controller
      * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresa)
+    public function destroy($id)
     {
-        //
+        empresa::destroy($id);
+        return redirect('empresa');
     }
 }

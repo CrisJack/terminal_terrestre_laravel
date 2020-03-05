@@ -23,21 +23,30 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="{{url('/estudiantes')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{url('/empresa')}}" method="POST" enctype="multipart/form-data">
     {{csrf_field()}}
         
     <div class="form-group">
     <label for="formGroupExampleInput">Nombre</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el Nombre de su Empresa">
+    <input name="name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el Nombre de su Empresa">
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Ruc</label>
-    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el Ruc de su Empresa">
+    <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el Ruc de su Empresa">
+    </div>
+    <div class="form-group">
+    <label for="formGroupExampleInput2">Usuario</label>
+    <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+    <option selected>Seleccione el Usuario</option>
+    @foreach($usuarios as $value)    
+    <option value="{{$value->id}}">{{$value->name}}</option> 
+    @endforeach   
+    </select>
     </div>
 
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Gurdar</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
       <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         
@@ -45,22 +54,46 @@
     </div>
   </div>
 </div>
+
 <!-- Modal Update -->
 <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear Empresa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <form action="{{url('/empresa')}}" method="POST" enctype="multipart/form-data">
+    {{csrf_field()}}
+    {{method_field('PATCH')}}
+        
+    <div class="form-group">
+    <label for="formGroupExampleInput">Nombre</label>
+    <input name="name" type="text" class="form-control" id="formGroupExampleInput" value="">
+    </div>
+    <div class="form-group">
+    <label for="formGroupExampleInput2">Ruc</label>
+    <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el Ruc de su Empresa">
+    </div>
+    <div class="form-group">
+    <label for="formGroupExampleInput2">Usuario</label>
+    <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+    <option selected>Seleccione el Usuario</option>
+    @foreach($usuarios as $value)    
+    <option value="{{$value->id}}">{{$value->name}}</option> 
+    @endforeach   
+    </select>
+    </div>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+      <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        
       </div>
     </div>
   </div>
@@ -96,19 +129,21 @@
         <thead class="thead-dark">
         <th>#</th>
         <th>RUC</th>
-        <th>Nombre</th>        
+        <th>Nombre</th>
+        <th>Usuario</th>        
         <th>Acciones</th>
         </thead>
        
         <tbody>
             @foreach($empresas as $value)
-            <tr>
+            <tr class="text-dark">
                 <td>{{$loop->iteration}}</td>
                 <td>{{$value->ruc}}</td>
-                <td>{{$value['name']}}</td>                
-                <td class="d-flex justify-content-center"><a class="btn btn-warning mx-1" href="{{url('/estudiantes/'.$value['id'].'/edit')}}" data-toggle="modal" data-target="#editar">Editar</a>              
+                <td>{{$value['name']}}</td> 
+                <td>{{$value->user->name}}</td>               
+                <td class="d-flex justify-content-center"><a class="btn btn-warning mx-1" href="{{url('/empresa/'.$value['id'].'/edit')}}">Editar</a>              
                 
-                <form action="{{url('/estudiantes/'.$value['id'])}}" method="post">
+                <form action="{{url('/empresa/'.$value['id'])}}" method="post">
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
                 <button class="btn btn-danger mx-1" type="submit" onclick="return confirm('¿Estas Seguro de querer Borrar?')">Borrar</button>
