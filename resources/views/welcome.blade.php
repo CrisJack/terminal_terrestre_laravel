@@ -58,11 +58,12 @@
     bottom: 0;
         }
 .overlay .caja{
-    height: 50vh;
+    height: 50vh;    
+    margin-right:80px; 
 }
         </style>
         <div class="overlay">
-                            <div class="container-fluid ">
+                            <div class="container-fluid">
                                 <div class="row caja align-items-center">
                                     <div class="col col-sm-12 text-sm-center col-md-5 offset-md-6 text-center text-md-right">
                                         <h1 class="text-light">La Vida del Código</h1>
@@ -70,7 +71,7 @@
                                             Codigo Conf llega por pimera vez a Hawaii! Un evento para compartir con nuestra comunidad el conocimiento y experiencia de los expertos que están creando el futuro de internet. Ven a conocer a miembros del Team Codigo, a otros estudiantes de Codigo y a los oradores de primer nivel que tenemos para ti. Te esperamos!
                                         </p>
                                         <a type="button" class="btn btn-outline-light mr-2" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-                                        <a type="button" class="btn btn-success mr-4 position-relative" href="{{ route('register') }}">{{ __('Registrarse') }}</a>                             
+                                        <!-- <a type="button" class="btn btn-success mr-4 position-relative" href="{{ route('register') }}">{{ __('Registrarse') }}</a>                              -->
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +86,7 @@
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <!-- <a
+    <a
         class="carousel-control-next"
         href="#carouselExampleIndicators"
         role="button"
@@ -93,7 +94,7 @@
     >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-    </a> -->
+    </a>
 </div>
 
 <div class="container">

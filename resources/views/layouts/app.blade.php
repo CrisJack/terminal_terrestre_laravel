@@ -85,7 +85,7 @@
                                 <a class="nav-link" href="{{ url('/empresa') }}">{{ __('Empresas') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Usuarios') }}</a>
+                                <a class="nav-link" href="{{ url('/user') }}">{{ __('Usuarios') }}</a>
                             </li>
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>

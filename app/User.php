@@ -37,11 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    
+
     public function mensaje(){
         return $this->hasMany('App\Mensaje','user_id');
     }
 
     public function empresa(){
-        return $this->hasMany('App\Mensaje','user_id');
+        return $this->hasMany('App\Empresa','user_id');
+    }
+    public function rol(){
+        return $this->belongsTo('App\Rol');
     }
 }
