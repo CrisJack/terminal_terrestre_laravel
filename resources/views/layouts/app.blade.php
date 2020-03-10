@@ -71,26 +71,29 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar Usuario') }}</a>
-                            </li>
+                            </li> -->
                             @endif
                         @else
 
                             <!-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar Usuario') }}</a>
                             </li> -->
-
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/salida') }}">{{ __('Salidas') }}</a>
+                            </li>
+                           
+                            @if(Auth::user()->rol_id == 1)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/empresa') }}">{{ __('Empresas') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/user') }}">{{ __('Usuarios') }}</a>
                             </li>
+                            @endif
                             <!-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                             </li> -->
 

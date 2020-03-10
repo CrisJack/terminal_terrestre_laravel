@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Rol;
 use Illuminate\Http\Request;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class UserController extends Controller
 {
@@ -40,9 +45,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $datos=request()->except('_token');        
-        user::insert($datos);
-        return redirect('user');
+        $datos=request()->except('_token');
+        User::insert([
+            'name' => $datos['name'],
+            'email' => $datos['email'],
+            'rol_id'=>$datos['rol_id'],                  
+            'password' => Hash::make($datos['password']),
+        ]);
+        return redirect('user');        
+        
     }
 
     /**
@@ -79,7 +90,14 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $datos=request()->except(['_token','_method']);
-        user::where('id','=',$id)->update($datos);
+        user::where('id','=',$id)->update(
+            [
+                'name' => $datos['name'],
+                'email' => $datos['email'],
+                'rol_id'=>$datos['rol_id'],                  
+                'password' => Hash::make($datos['password']),
+            ]
+        );
 
         return redirect('user');
     }

@@ -99,81 +99,37 @@
 
 <div class="container">
     <div class="row">
-        <div class="col text-center">
-        <h1 class="text-white">Perfil <small class="text-warning">Profesional</small></h1>
-            <div class="card-deck mx-4">
-                <div class="col-12 my-4">
-                    <div class="card with-12rem">
-                        <div class="card-header bg-info text-white">
-                            Presentación
-                        </div>
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-auto col-lg-6">
-                                <img src="{{url('storage/img/perfil.png')}}" style="width:23rem;" alt="">
-                                    <h5 class="card-title">Mi nombre es</h5>
-                                    <p class="card-text">
-                                        Cristhian Jack López Suasnabar
-                                    </p>
-                                </div>
-                                <div class="col-auto col-lg-6 text-left">
-                                    <h5 class="card-title">Esperiencia :</h5><hr>
-                                    <p class="card-text">
-                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
- 5 años como Tutor Vitual (herramientas (Moodle y Chamilo))
-                                    </p>
-                                    <p class="card-text">
-                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
- 1 año en soporte y administración de redes 
-                                    </p>
-                                    <p class="card-text">
-                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
- 2 años en soporte de equipos informáticos
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    @foreach($salidas as $value)
+        <div class="col text-center my-2">
+        
+                        <div class="card" style="width: 18rem; background: rgba(64, 224, 208, 0.6);" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$value->empresa->name}}</h5>                    
                 </div>
-            </div>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Fecha</b></span>{{$value->fecha}}</li>
+                    <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Hora de Salida</b></span>{{$value->hora}}</li>                    
+                </ul>
+                <div class="card-body">
+                <h5 class="card-title"><span><b>Precio </b> S/.</span>{{$value->precio}} soles</h5>                    
+                </div>
+                </div>
+                
         </div>
-    </div>
-    <div class="row text-center">
-        <div class="col"><h1 class="text-white">Conocimiento <small class="text-warning">En</small></h1></div>
+        @endforeach
     </div>
     <div class="row text-center">
         <div class="col">
-            <div class="card-deck mx-4">
-                <div class="col-12 my-4">
-                    <div class="card with-12rem">
-                        <div class="card-header bg-info text-white">
-                            Presentación
-                        </div>
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-auto col-lg-6">
-                                    <img src="{{url('storage/img/laravel.png')}}" style="width:23rem;" alt="">
-                                    <h5 class="card-title">Laravel</h5>
-                                    <p class="card-text">
-                                        Desarrollo de aplicaiones web en Laravel
-                                    </p>
-                                </div>
-                                <div class="col-auto col-lg-6">
-                                    <img src="{{url('storage/img/angular.png')}}" style="width:10rem;" alt="">
-                                    <h5 class="card-title">Angular</h5>
-                                    <p class="card-text">
-                                        Desarrollo de aplicaiones web en Angular
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            
         </div>
     </div>
 </div>
 
-<div class="container text-white m-4">.............................</div>
+<div class="container text-white m-4">.</div>
 @endsection
 

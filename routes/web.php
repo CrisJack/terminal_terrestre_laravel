@@ -1,5 +1,6 @@
 <?php
-
+use App\Salida;
+use App\Empresa;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $salidas['salidas']=salida::all()->load('empresa');
+    return view('welcome',$salidas);
 });
 
 Auth::routes();
@@ -21,5 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('mensaje','MensajeController');
 Route::resource('empresa','EmpresaController');
 Route::resource('user','UserController');
-// Route::resource('mensaje','MensajeController');
+Route::resource('salida','SalidaController');
 // Route::resource('mensaje','MensajeController');
