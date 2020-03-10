@@ -102,12 +102,12 @@
     @foreach($salidas as $value)
         <div class="col text-center my-2">
         
-                        <div class="card" style="width: 18rem; background: rgba(64, 224, 208, 0.6);" >
+                        <div class="card bg-info text-white" >
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{$value->empresa->name}}</h5>                    
                 </div>
-                <ul class="list-group list-group-flush ">
+                <ul class="list-group list-group-flush text-dark">
                     <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Fecha</b></span>{{$value->fecha}}</li>
                     <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Hora de Salida</b></span>{{$value->hora}}</li>                    
                 </ul>
