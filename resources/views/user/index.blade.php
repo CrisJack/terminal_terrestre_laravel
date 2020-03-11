@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Auth::user()->rol_id == 1)
 <div class="mt-4 text-white">.</div>
 <div class="container-fluid mt-4">
 
@@ -167,4 +168,5 @@
         </div>
     </div>
 </div>
+@endif
 @endsection

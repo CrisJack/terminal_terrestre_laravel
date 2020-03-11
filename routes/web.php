@@ -25,4 +25,4 @@ Route::resource('mensaje','MensajeController');
 Route::resource('empresa','EmpresaController');
 Route::resource('user','UserController');
 Route::resource('salida','SalidaController');
-// Route::resource('mensaje','MensajeController');
+

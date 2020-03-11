@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Empresa;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EmpresaController extends Controller
 {
@@ -13,6 +14,11 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $datos['empresas']=Empresa::all()->load('User');
@@ -39,7 +45,10 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $datos=request()->except('_token');        
+        $datos=request()->except('_token'); 
+        if ($request->hasFile('foto')) {
+            $datos['foto']=$request->file('foto')->store('uploads','public');
+        }       
         empresa::insert($datos);
         return redirect('empresa');
     }
@@ -78,6 +87,15 @@ class EmpresaController extends Controller
     public function update(Request $request, $id)
     {
         $datos=request()->except(['_token','_method']);
+        if ($request->hasFile('foto')) {
+            //borrar la foto
+            $empresa = empresa::findOrFail($id);
+            Storage::delete('public/'.$empresa->foto);
+
+            //guardar nueva foto
+            $datos['foto']=$request->file('foto')->store('uploads','public');
+        }
+
         empresa::where('id','=',$id)->update($datos);
 
         return redirect('empresa');

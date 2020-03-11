@@ -14,6 +14,11 @@ class SalidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $precio['precios']=salida::all()
@@ -68,9 +73,11 @@ class SalidaController extends Controller
      * @param  \App\Salida  $salida
      * @return \Illuminate\Http\Response
      */
-    public function edit(Salida $salida)
+    public function edit($id)
     {
-        //
+        $dato=salida::findOrFail($id);
+
+        return view('salida.edit',compact('dato'));
     }
 
     /**
@@ -80,9 +87,12 @@ class SalidaController extends Controller
      * @param  \App\Salida  $salida
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Salida $salida)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except(['_token','_method']);
+        salida::where('id','=',$id)->update($datos);
+
+        return redirect('salida');
     }
 
     /**
@@ -91,8 +101,9 @@ class SalidaController extends Controller
      * @param  \App\Salida  $salida
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Salida $salida)
+    public function destroy($id)
     {
-        //
+        salida::destroy($id);
+        return redirect('salida');
     }
 }

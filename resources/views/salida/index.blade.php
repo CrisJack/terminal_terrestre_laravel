@@ -83,9 +83,9 @@
                 <td>{{$value->fecha}}</td> 
                 <td>{{$value->hora}}</td>
                 <td><span>S/.</span>{{$value->precio}}</td>                
-                <td class="d-flex justify-content-center"><a class="btn btn-warning mx-1" href="">Editar</a>              
+                <td class="d-flex justify-content-center"><a class="btn btn-warning mx-1" href="{{url('/salida/'.$value['id'].'/edit')}}">Editar</a>              
                 
-                <form action="" method="post">
+                <form action="{{url('/salida/'.$value['id'])}}" method="post">
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
                 <button class="btn btn-danger mx-1" type="submit" onclick="return confirm('¿Estas Seguro de querer Borrar?')">Borrar</button>
@@ -99,6 +99,7 @@
         
         </div>
         @endif
+      
     @endforeach 
         <div class="col-3">
             <div class="card">

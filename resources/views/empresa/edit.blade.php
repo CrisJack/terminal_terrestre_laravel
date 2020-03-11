@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Auth::user()->rol_id == 1)
 <div class="mt-4 text-white">.</div>
 <div class="container">
 <div class="row">
@@ -28,6 +29,11 @@
     <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" value="{{$dato->ruc}}">
     </div>
     <div class="form-group">
+    <label for="formGroupExampleInput2">Foto</label>
+    <img class="mx-4" src="{{asset('storage').'/'.$dato['foto']}}" width=100>
+    <input class="m-2" type="file" name="foto">
+    </div>
+    <div class="form-group">
     <label for="formGroupExampleInput2">Usuario</label>
     <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
     <option value="{{$dato->user_id}}" selected>{{$dato->user->name}}</option>
@@ -51,5 +57,5 @@
 </div>
 </div>
                
-    
+@endif
 @endsection

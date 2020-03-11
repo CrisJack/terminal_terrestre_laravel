@@ -100,10 +100,10 @@
 <div class="container">
     <div class="row">
     @foreach($salidas as $value)
-        <div class="col text-center my-2">
+        <div class="col-12 col-md-4 col-lg-3 text-center my-2">
         
                         <div class="card bg-info text-white" >
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{{asset('storage').'/'.$value->empresa['foto']}}" class="card-img-top" alt="..." height=100>
                 <div class="card-body">
                     <h5 class="card-title">{{$value->empresa->name}}</h5>                    
                 </div>
