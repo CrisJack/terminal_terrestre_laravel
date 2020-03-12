@@ -104,7 +104,7 @@
                 <td>{{$value->ruc}}</td>
                 <td>{{$value['name']}}</td> 
                 <td>{{$value->user->name}}</td> 
-                <td><img src="{{asset('storage').'/'.$value['foto']}}" width=100></td>               
+                <td><img src="{{asset('storage').'/'.$value['foto']}}" width=100 height=40></td>               
                 <td class="d-flex justify-content-center"><a class="btn btn-warning mx-1" href="{{url('/empresa/'.$value['id'].'/edit')}}">Editar</a>              
                 
                 <form action="{{url('/empresa/'.$value['id'])}}" method="post">

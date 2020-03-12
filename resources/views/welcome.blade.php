@@ -20,7 +20,7 @@
                 alt="..."
             />
             <div class="carousel-caption d-none d-md-block">
-        <h3>Imaginacón</h3>
+        <h3>Imaginación</h3>
         <p>Todo es Posible</p>
       </div>
         </div>
@@ -32,7 +32,7 @@
                 alt="..."
             />
             <div class="carousel-caption d-none d-md-block">
-        <h3>Imaginacón</h3>
+        <h3>Imaginación</h3>
         <p>Todo es Posible</p>
       </div>
         </div>
@@ -44,7 +44,7 @@
                 alt="..."
             />
             <div class="carousel-caption d-none d-md-block">
-        <h3>Imaginacón</h3>
+        <h3>Imaginación</h3>
         <p>Todo es Posible</p>
       </div>
         </div>
@@ -108,8 +108,14 @@
                     <h5 class="card-title">{{$value->empresa->name}}</h5>                    
                 </div>
                 <ul class="list-group list-group-flush text-dark">
-                    <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Fecha</b></span>{{$value->fecha}}</li>
-                    <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Hora de Salida</b></span>{{$value->hora}}</li>                    
+                        <?php 
+                        ini_set('date.timezone','America/Lima');
+                        setlocale(LC_TIME, "spanish");
+                        $fecha = strftime("%A, %d %B ", strtotime($value->fecha));
+                        $hora=strftime("%R",strtotime($value->hora))
+                        ?>
+                    <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Fecha</b></span> <?php echo $fecha ?></li>
+                    <li class="list-group-item d-flex justify-content-start"><span class="mr-2"><b>Hora de Salida</b></span><?php echo $hora ?> horas</li>                    
                 </ul>
                 <div class="card-body">
                 <h5 class="card-title"><span><b>Precio </b> S/.</span>{{$value->precio}} soles</h5>                    
