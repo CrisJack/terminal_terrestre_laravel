@@ -22,11 +22,11 @@
         
     <div class="form-group">
     <label for="formGroupExampleInput">Nombre</label>
-    <input name="name" type="text" class="form-control" id="formGroupExampleInput" value="{{$dato->name}}">
+    <input name="name" type="text" class="form-control" id="formGroupExampleInput" value="{{$dato->name}}" required>
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Ruc</label>
-    <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" value="{{$dato->ruc}}">
+    <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" value="{{$dato->ruc}}" required>
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Foto</label>
@@ -35,7 +35,7 @@
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Usuario</label>
-    <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+    <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" required>
     <option value="{{$dato->user_id}}" selected>{{$dato->user->name}}</option>
     @foreach($usuarios as $value)    
     <option value="{{$value->id}}">{{$value->name}}</option> 

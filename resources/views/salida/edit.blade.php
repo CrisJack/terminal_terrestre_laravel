@@ -24,15 +24,15 @@
                     </div>                    
                     <div class="form-group">
                     <label for="fecha">Fecha</label>
-                    <input name="fecha" type="date" class="form-control" id="formGroupExampleInput" value="{{$dato->fecha}}">
+                    <input name="fecha" type="date" class="form-control" id="formGroupExampleInput" value="{{$dato->fecha}}" required>
                     </div>
                     <div class="form-group">
                     <label for="formGroupExampleInput2">Hora</label>
-                    <input name="hora" type="time" class="form-control" id="formGroupExampleInput2" value="{{$dato->hora}}">
+                    <input name="hora" type="time" class="form-control" id="formGroupExampleInput2" value="{{$dato->hora}}" required>
                     </div>
                     <div class="form-group">
                     <label for="formGroupExampleInput2">Precio</label>
-                    <input name="precio" type="double" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el precio del pasaje" value="{{$dato->precio}}">
+                    <input name="precio" type="double" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el precio del pasaje" value="{{$dato->precio}}" required>
                     </div>
 
                     </div>

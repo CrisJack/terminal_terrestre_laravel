@@ -33,15 +33,15 @@
     </div>   
     <div class="form-group">
     <label for="fecha">Fecha</label>
-    <input name="fecha" type="date" class="form-control" id="formGroupExampleInput">
+    <input name="fecha" type="date" class="form-control" id="formGroupExampleInput" required>
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Hora</label>
-    <input name="hora" type="time" class="form-control" id="formGroupExampleInput2">
+    <input name="hora" type="time" class="form-control" id="formGroupExampleInput2" required>
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Precio</label>
-    <input name="precio" type="double" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el precio del pasaje">
+    <input name="precio" type="double" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el precio del pasaje" required>
     </div>
 
       </div>

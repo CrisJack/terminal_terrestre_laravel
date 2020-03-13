@@ -29,20 +29,20 @@
         
     <div class="form-group">
     <label for="formGroupExampleInput">Nombre</label>
-    <input name="name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el Nombre de su Empresa">
+    <input name="name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el Nombre de su Empresa" required>
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Ruc</label>
-    <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el Ruc de su Empresa">
+    <input name="ruc" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese el Ruc de su Empresa" required>
     </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Foto</label>
     <input class="" type="file" name="foto">
     </div>
     <div class="form-group">
-    <label for="formGroupExampleInput2">Usuario</label>
-    <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-    <option selected>Seleccione el Usuario</option>
+    <label for="formGroupExampleInput2">Usuario Asignado</label>
+    <select name="user_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" required>
+    <option selected></option>
     @foreach($usuarios as $value)    
     <option value="{{$value->id}}">{{$value->name}}</option> 
     @endforeach   

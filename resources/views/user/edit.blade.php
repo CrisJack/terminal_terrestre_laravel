@@ -67,7 +67,7 @@
                             <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Ingresar Rol') }}</label>
 
                             <div class="col-md-6">
-                            <select name="rol_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                            <select name="rol_id"  class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" required>
                                     <option value="{{$dato->rol_id}}" selected>{{$dato->rol->name}}</option>
                                     @foreach($roles as $value)
                                     <option value="{{$value->id}}">{{$value->name}}</option>
